@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Видеоинструкция — Kazino Launcher</title>
+<meta name="description" content="Видеоинструкция по установке Kazino Launcher: скачай Setup, установи, введи ник и играй.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0e17; --bg2:#101527; --card:#141b32; --card2:#182040;
+  --line:rgba(255,255,255,.09); --txt:#eef1ff; --muted:#9aa3c7;
+  --green:#3ddc84; --green2:#22b86a; --gold:#f5c518; --violet:#7c6cff;
+  --r:18px; --font:'Inter',system-ui,sans-serif; --disp:'Sora',var(--font);
+  --header-bg:rgba(11,14,23,.78);
+}
+[data-theme="light"]{
+  --bg:#eef1f6; --bg2:#ffffff; --card:#ffffff; --card2:#f4f6fb;
+  --line:rgba(15,23,42,.12); --txt:#101828; --muted:#5b6478;
+  --header-bg:rgba(255,255,255,.85);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:var(--font);line-height:1.6;transition:background .3s,color .3s}
+.container{max-width:860px;margin:0 auto;padding:0 24px}
+.header{position:sticky;top:0;backdrop-filter:blur(14px);background:var(--header-bg);border-bottom:1px solid var(--line);z-index:50}
+.header-inner{display:flex;align-items:center;gap:16px;height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--txt)}
+.brand-mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--green),#1de9b6);display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:22px;color:#06281a}
+.brand-text{font-family:var(--disp);font-weight:800;font-size:17px}
+.brand-text em{font-style:normal;color:var(--green)}
+.header-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;border-radius:13px;transition:.2s;border:1px solid transparent;cursor:pointer;font-family:var(--font)}
+.btn-sm{padding:9px 16px;font-size:13.5px}
+.btn-lg{padding:15px 26px;font-size:15.5px}
+.btn-primary{background:linear-gradient(135deg,var(--green),#1de9b6);color:#06281a;box-shadow:0 8px 30px rgba(61,220,132,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 38px rgba(61,220,132,.5)}
+.btn-ghost{border-color:var(--line);color:var(--txt);background:rgba(127,140,180,.06)}
+.btn-ghost:hover{border-color:var(--green);background:rgba(61,220,132,.08)}
+.theme-btn{background:var(--card);border:1px solid var(--line);color:var(--txt);width:36px;height:36px;border-radius:11px;font-size:17px;cursor:pointer;line-height:1}
+.hero{padding:56px 24px 20px;text-align:center}
+.kicker{font-family:monospace;font-size:13px;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+h1{font-family:var(--disp);font-size:clamp(30px,4vw,44px);letter-spacing:-.8px}
+.grad{background:linear-gradient(120deg,var(--green),#1de9b6 45%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:16px;margin:14px auto 0;max-width:560px}
+.player{margin:30px auto 0;background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid rgba(61,220,132,.3);border-radius:22px;padding:22px}
+.player video{width:100%;border-radius:14px;background:#000;border:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
+.step b{display:block;font-family:var(--disp);font-size:17px;margin-bottom:6px}
+.step span{font-size:13px;color:var(--muted)}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:30px 0 10px}
+.micro{color:var(--muted);font-size:13px;text-align:center;margin-bottom:60px}
+.footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px}
+.footer-inner{display:flex;gap:16px;align-items:center;font-size:14px;flex-wrap:wrap}
+.footer-inner a{color:var(--muted);text-decoration:none}
+.footer-inner a:hover{color:var(--green)}
+@media(max-width:700px){.steps{grid-template-columns:1fr}}
+</style>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%233ddc84'/><text x='50' y='72' font-size='58' font-family='sans-serif' font-weight='900' text-anchor='middle' fill='%230b0e17'>K</text></svg>">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">K</span><span class="brand-text">Kazino <em>Launcher</em></span></a>
+    <div class="header-actions">
+      <button class="theme-btn" id="themeBtn" title="Сменить тему">☾</button>
+      <a class="btn btn-ghost btn-sm" href="index.html">← На главную</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="hero">
+    <p class="kicker">Видеоинструкция</p>
+    <h1>Установка за <span class="grad">3 шага.</span></h1>
+    <p class="lead">Посмотри короткое видео — там всё: скачивание, установка и первый запуск игры.</p>
+  </div>
+
+  <div class="player">
+    <video controls playsinline preload="metadata" src="instruction.mp4"></video>
+    <div class="steps">
+      <div class="step"><b>1. Скачай</b><span>Кнопка ниже — Setup 72 МБ</span></div>
+      <div class="step"><b>2. Установи</b><span>Запусти Setup, всё встанет само</span></div>
+      <div class="step"><b>3. Играй</b><span>Ник, версия, кнопка «Играть»</span></div>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn btn-primary btn-lg" href="https://github.com/magomed421/KazinoLauncher/releases/download/v5.1.34/KazinoLauncher-Setup-5.1.34.exe" download>⬇ Скачать Setup · 72 МБ</a>
+    <a class="btn btn-ghost btn-lg" href="https://discord.gg/Av6BTQ66Vu" target="_blank" rel="noopener">Наш Discord</a>
+  </div>
+  <p class="micro">Посмотрел видео — качай смело. Вопросы? Помогут в Discord: discord.gg/Av6BTQ66Vu</p>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="index.html">← На главную</a>
+    <a href="https://discord.gg/Av6BTQ66Vu" target="_blank" rel="noopener">Discord</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeBtn');
+  try {
+    var saved = localStorage.getItem('kz-theme');
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+  function sync() { themeBtn.textContent = root.getAttribute('data-theme') === 'light' ? '☀' : '☾'; }
+  sync();
+  themeBtn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('kz-theme', next); } catch (e) {}
+    sync();
+  });
+  var v = document.querySelector('video');
+  if (v) v.addEventListener('ended', function () {
+    try { localStorage.setItem('kz-instr-watched', '1'); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
