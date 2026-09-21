@@ -186,6 +186,18 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
   .dl-left{padding:28px}
   .cta{padding:36px 24px}
 }
+.gate-ov{position:fixed;inset:0;background:rgba(4,6,12,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
+.gate-ov.open{display:flex;animation:fade .25s}
+.gate-box{max-width:660px;width:100%;background:var(--card);border:1px solid rgba(61,220,132,.35);border-radius:20px;padding:28px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.gate-box h3{font-family:var(--disp);font-size:22px;margin-bottom:6px}
+.gate-box>p{color:var(--muted);font-size:14px;margin-bottom:14px}
+.gate-box video{width:100%;border-radius:12px;border:1px solid var(--line);background:#000;max-height:52vh}
+.gate-row{display:flex;gap:10px;margin-top:16px;align-items:center;flex-wrap:wrap}
+.gate-note{font-size:13px;color:var(--muted)}
+.gate-note.ok{color:var(--green)}
+.gate-dl.disabled{opacity:.45;pointer-events:none;filter:grayscale(.5)}
+.gate-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:10px;background:rgba(127,140,180,.1);border:1px solid var(--line);color:var(--txt);font-size:16px;cursor:pointer;line-height:1}
+.gate-close:hover{border-color:var(--green)}
 </style>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%233ddc84'/><text x='50' y='72' font-size='58' font-family='sans-serif' font-weight='900' text-anchor='middle' fill='%230b0e17'>K</text></svg>">
 </head>
@@ -394,6 +406,19 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
 
 </main>
 
+<div class="gate-ov" id="gateOv" role="dialog" aria-modal="true" aria-label="Инструкция перед скачиванием">
+  <div class="gate-box">
+    <button class="gate-close" id="gateClose" aria-label="Закрыть">✕</button>
+    <h3>Сначала посмотри инструкцию 🎬</h3>
+    <p>Досмотри видео до конца — после этого кнопка скачивания разблокируется автоматически.</p>
+    <video id="gateVideo" controls playsinline preload="metadata" src="instruction.mp4"></video>
+    <div class="gate-row">
+      <a class="btn btn-primary gate-dl disabled" id="gateDl">⬇ Скачать Setup · 72 МБ</a>
+      <span class="gate-note" id="gateNote">Смотри видео — кнопка откроется в конце.</span>
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="container footer-inner">
     <div class="brand"><span class="brand-mark sm">K</span><span class="brand-text">Kazino <em>Launcher</em><small>v5.1.34 · Setup 72 МБ · Windows 10/11</small></span></div>
@@ -465,6 +490,45 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
   window.addEventListener('scroll', function () {
     header.style.boxShadow = window.scrollY > 10 ? '0 10px 40px rgba(0,0,0,.35)' : 'none';
   }, { passive: true });
+  var GATE_KEY = 'kz-instr-watched';
+  var gateOv = document.getElementById('gateOv');
+  var gateVideo = document.getElementById('gateVideo');
+  var gateDl = document.getElementById('gateDl');
+  var gateNote = document.getElementById('gateNote');
+  var pendingUrl = null;
+  function openGate(url) {
+    pendingUrl = url;
+    gateDl.classList.add('disabled');
+    gateDl.removeAttribute('href');
+    gateNote.classList.remove('ok');
+    gateNote.textContent = 'Смотри видео — кнопка откроется в конце.';
+    gateOv.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    try { gateVideo.currentTime = 0; gateVideo.play(); } catch (e) {}
+  }
+  function closeGate() {
+    gateOv.classList.remove('open');
+    document.body.style.overflow = '';
+    try { gateVideo.pause(); } catch (e) {}
+  }
+  document.querySelectorAll('a[href*="KazinoLauncher-Setup-"]').forEach(function (a) {
+    a.addEventListener('click', function (ev) {
+      var watched = false;
+      try { watched = localStorage.getItem(GATE_KEY) === '1'; } catch (e) {}
+      if (watched) return;
+      ev.preventDefault();
+      openGate(a.getAttribute('href'));
+    });
+  });
+  gateVideo.addEventListener('ended', function () {
+    try { localStorage.setItem(GATE_KEY, '1'); } catch (e) {}
+    gateDl.classList.remove('disabled');
+    if (pendingUrl) gateDl.setAttribute('href', pendingUrl);
+    gateNote.classList.add('ok');
+    gateNote.textContent = 'Готово! Скачивание разблокировано.';
+  });
+  document.getElementById('gateClose').addEventListener('click', closeGate);
+  gateOv.addEventListener('click', function (e) { if (e.target === gateOv) closeGate(); });
 })();
 </script>
 </body>
