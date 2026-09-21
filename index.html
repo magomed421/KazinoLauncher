@@ -198,6 +198,7 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
 .gate-dl.disabled{opacity:.45;pointer-events:none;filter:grayscale(.5)}
 .gate-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:10px;background:rgba(127,140,180,.1);border:1px solid var(--line);color:var(--txt);font-size:16px;cursor:pointer;line-height:1}
 .gate-close:hover{border-color:var(--green)}
+.gate-warn{margin-top:12px;font-size:13.5px;color:#f5c518;background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.4);border-radius:12px;padding:10px 14px}
 </style>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%233ddc84'/><text x='50' y='72' font-size='58' font-family='sans-serif' font-weight='900' text-anchor='middle' fill='%230b0e17'>K</text></svg>">
 </head>
@@ -363,6 +364,7 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
       <div class="dl-buttons">
         <a class="btn btn-primary btn-lg" href="https://github.com/magomed421/KazinoLauncher/releases/download/v5.1.34/KazinoLauncher-Setup-5.1.34.exe" download>⬇ Скачать Setup · 72 МБ</a>
       </div>
+      <p class="gate-warn" style="margin-top:14px">⚠ Обязательно посмотри видеоинструкцию перед установкой — без правильной настройки лаунчер будет лагать или не запустится. <a href="instruction.html" style="color:var(--green)">Смотреть инструкцию →</a></p>
       <p class="micro">Файл лежит прямо на сайте — кнопка выше скачает <b>KazinoLauncher-Setup-5.1.34.exe</b> (72 МБ). Запасная копия — в канале «новости» Discord-сервера: <b>discord.gg/Av6BTQ66Vu</b>.</p>
       <div class="install">
         <div class="install-head"><span>После скачивания</span></div>
@@ -411,6 +413,7 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
     <button class="gate-close" id="gateClose" aria-label="Закрыть">✕</button>
     <h3>Сначала посмотри инструкцию 🎬</h3>
     <p>Досмотри видео до конца — после этого кнопка скачивания разблокируется автоматически.</p>
+    <p class="gate-warn">⚠ Это обязательно: без настройки из инструкции лаунчер может лагать или вообще не запуститься. Не пропускай — там 2 минуты.</p>
     <video id="gateVideo" controls playsinline preload="metadata" src="instruction.mp4"></video>
     <div class="gate-row">
       <a class="btn btn-primary gate-dl disabled" id="gateDl">⬇ Скачать Setup · 72 МБ</a>
