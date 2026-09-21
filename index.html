@@ -196,6 +196,14 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
 .gate-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:10px;background:rgba(127,140,180,.1);border:1px solid var(--line);color:var(--txt);font-size:16px;cursor:pointer;line-height:1}
 .gate-close:hover{border-color:var(--green)}
 .gate-warn{margin-top:12px;font-size:13.5px;color:#f5c518;background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.4);border-radius:12px;padding:10px 14px}
+.specstrip{font-family:var(--mono);font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:12px;padding:10px 16px;margin-top:26px;display:inline-block;background:rgba(127,140,180,.05)}
+.card .icon{display:none}
+.grid-3{counter-reset:spec}
+.grid-3 .card{position:relative;padding-top:30px}
+.grid-3 .card::before{counter-increment:spec;content:"[" counter(spec,decimal-leading-zero) "]";font-family:var(--mono);font-size:12px;color:var(--muted);position:absolute;top:14px;left:28px}
+.btn-primary{background:var(--green);box-shadow:none}
+.btn-donate{background:var(--gold);box-shadow:none}
+.install pre{white-space:pre-wrap;word-break:break-all}
 </style>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%233ddc84'/><text x='50' y='72' font-size='58' font-family='sans-serif' font-weight='900' text-anchor='middle' fill='%230b0e17'>K</text></svg>">
 </head>
@@ -216,7 +224,7 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
     <nav class="nav" aria-label="Основная навигация">
       <a href="#features">Возможности</a>
       <a href="#loaders">Загрузчики</a>
-      <a href="instruction.html">▶ Инструкция</a>
+      <a href="instruction.html">Инструкция</a>
       <a href="#engineering">Надёжность</a>
       <a href="#download">Скачать</a>
       <a href="#faq">FAQ</a>
@@ -225,7 +233,7 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
       <span class="status-pill" title="Статус сборки"><span class="dot"></span>stable</span>
       <button class="theme-btn" id="themeBtn" title="Сменить тему" aria-label="Сменить тему">☾</button>
       <a class="btn btn-ghost btn-sm" href="https://discord.gg/Av6BTQ66Vu" target="_blank" rel="noopener">Discord</a>
-      <a class="btn btn-donate btn-sm" href="https://www.donationalerts.com/r/magomed653" target="_blank" rel="noopener">❤ Поддержать</a>
+      <a class="btn btn-donate btn-sm" href="https://www.donationalerts.com/r/magomed653" target="_blank" rel="noopener">Поддержать</a>
       <a class="btn btn-primary btn-sm" href="#download">Скачать</a>
       <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
@@ -233,7 +241,7 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
   <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
     <a href="#features">Возможности</a>
     <a href="#loaders">Загрузчики</a>
-    <a href="instruction.html">▶ Видеоинструкция</a>
+    <a href="instruction.html">Видеоинструкция</a>
     <a href="#engineering">Надёжность</a>
     <a href="#download">Скачать</a>
     <a href="#faq">FAQ</a>
@@ -246,23 +254,17 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
 <section class="hero container">
   <div class="hero-left">
     <div class="badges">
-      <span class="badge badge-new">● v5.0 — NeoForge + честный OptiFine</span>
-      <span class="badge badge-dim">Windows 10 / 11 · 64-bit</span>
+      <span class="badge badge-new">● v5.1.34 · stable</span>
+      <span class="badge badge-dim">windows x86_64 · setup 72.1 МБ</span>
     </div>
-    <h1>Minecraft<br>без <span class="grad">компромиссов.</span></h1>
-    <p class="lead">Kazino Launcher — лаунчер, написанный инженером, а не маркетологом. Официальные источники версий, моды напрямую из <strong>Modrinth</strong>. Никакой рекламы и никакого мусора.</p>
+    <h1>Kazino Launcher</h1>
+    <p class="lead">Запуск Minecraft без лицензии Mojang. 6 загрузчиков из официальных источников, моды и ресурспаки из <strong>Modrinth</strong>, 10 языков интерфейса, Discord RPC. Без рекламы и телеметрии.</p>
     <div class="cta-row">
-      <a class="btn btn-ghost btn-lg" href="https://discord.gg/Av6BTQ66Vu" target="_blank" rel="noopener">Наш Discord</a>
-      <a class="btn btn-ghost btn-lg" href="instruction.html">▶ Видеоинструкция</a>
-      <a class="btn btn-donate btn-lg" href="https://www.donationalerts.com/r/magomed653" target="_blank" rel="noopener">❤ Поддержать проект</a>
+      <a class="btn btn-ghost btn-lg" href="https://discord.gg/Av6BTQ66Vu" target="_blank" rel="noopener">Discord</a>
+      <a class="btn btn-ghost btn-lg" href="instruction.html">Видеоинструкция</a>
     </div>
-    <p class="micro">Бесплатно навсегда · Лицензия Mojang не нужна · Setup качается прямо с сайта</p>
-    <div class="stats">
-      <div class="stat"><b data-count="6">6</b><span>загрузчиков</span></div>
-      <div class="stat"><b data-count="10">10</b><span>языков интерфейса</span></div>
-      <div class="stat"><b><span data-count="100">100</span>%</b><span>официальные источники</span></div>
-      <div class="stat"><b data-count="0">0</b><span>рекламы и слежки</span></div>
-    </div>
+    <p class="micro">Сборка из исходников: github.com/magomed421/KazinoLauncher · качайте только отсюда или из Discord-канала «новости»</p>
+    <div class="specstrip">v5.1.34 · stable · x86_64 · 72.1 МБ · sha256: 35ce16b1…076813e4d</div>
   </div>
 </section>
 
@@ -270,9 +272,9 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
 
 <!-- ============ FEATURES ============ -->
 <section class="section container" id="features">
-  <p class="kicker">Почему Kazino</p>
-  <h2>Сделано так, будто<br>этим <span class="grad">пользоваться 10 лет.</span></h2>
-  <p class="sub">Каждая функция либо работает, либо её нет. Если что-то технически невозможно автоматизировать — мы так и пишем, а не рисуем фейковую кнопку.</p>
+  <p class="kicker">Спецификация</p>
+  <h2>Что умеет лаунчер.</h2>
+  <p class="sub">Каждая функция либо работает, либо её нет. Если что-то технически невозможно автоматизировать — так и написано, без фейковых кнопок.</p>
 
   <div class="grid-3">
     <article class="card reveal"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3ddc84" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></div><h3>6 загрузчиков из коробки</h3><p>Vanilla по официальному списку версий Mojang. Forge, Fabric, Quilt, NeoForge — из официальных источников. Списки грузятся лениво — окно никогда не виснет.</p></article>
@@ -297,7 +299,7 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
 <!-- ============ LOADERS ============ -->
 <section class="section container" id="loaders">
   <p class="kicker">Загрузчики</p>
-  <h2>Вся правда о загрузчиках.<br><span class="grad">В таблице, а не в мелком шрифте.</span></h2>
+  <h2>Поддержка загрузчиков.</h2>
 
   <div class="tabs" role="tablist" aria-label="Загрузчики">
     <button class="tab on" data-tab="t-vanilla" role="tab">Vanilla</button>
@@ -308,16 +310,16 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
   </div>
 
   <div class="tab-panels">
-    <div class="tab-panel on" id="t-vanilla"><h3>Vanilla — полностью автоматически ✅</h3><p>Полный официальный список версий Mojang — все релизы, а не урезанный набор. Если сеть легла, интерфейс всё равно покажет базовый список и не зависнет.</p></div>
-    <div class="tab-panel" id="t-forge"><h3>Forge — полностью автоматически ✅</h3><p>Тысячи сборок грузятся лениво — только когда вы реально открыли вкладку Forge. Выбрал — поставилось само.</p></div>
-    <div class="tab-panel" id="t-fabric"><h3>Fabric и Quilt — полностью автоматически ✅</h3><p>Quilt понимает большинство Fabric-модов, и поиск это учитывает: если под Quilt ничего нет, предложит совместимые Fabric-сборки.</p></div>
-    <div class="tab-panel" id="t-neoforge"><h3>NeoForge — полностью автоматически ✅</h3><p>Ставится из официального канала NeoForge сам. Если на вашей системе NeoForge недоступен — пункт честно скроется, а не будет делать вид.</p></div>
+    <div class="tab-panel on" id="t-vanilla"><h3>Vanilla — полностью автоматически</h3><p>Полный официальный список версий Mojang — все релизы, а не урезанный набор. Если сеть легла, интерфейс всё равно покажет базовый список и не зависнет.</p></div>
+    <div class="tab-panel" id="t-forge"><h3>Forge — полностью автоматически</h3><p>Тысячи сборок грузятся лениво — только когда вы реально открыли вкладку Forge. Выбрал — поставилось само.</p></div>
+    <div class="tab-panel" id="t-fabric"><h3>Fabric и Quilt — полностью автоматически</h3><p>Quilt понимает большинство Fabric-модов, и поиск это учитывает: если под Quilt ничего нет, предложит совместимые Fabric-сборки.</p></div>
+    <div class="tab-panel" id="t-neoforge"><h3>NeoForge — полностью автоматически</h3><p>Ставится из официального канала NeoForge сам. Если на вашей системе NeoForge недоступен — пункт честно скроется, а не будет делать вид.</p></div>
     <div class="tab-panel warn" id="t-optifine"><h3>OptiFine — честная ручная схема ⚠</h3><p>У OptiFine <strong>нет публичного API</strong> — файл раздаётся только вручную через рекламу (так автор монетизирует проект). Мы не стали рисовать фейковую кнопку «скачать». Вместо этого 4 честных шага:</p>
       <ol class="steps"><li>Кнопка открывает <b>optifine.net</b> в браузере.</li><li>Вы скачиваете <b>installer.jar</b> вручную.</li><li>Лаунчер запускает <b>официальный</b> установщик как есть.</li><li>Жмёте <b>«Импортировать»</b> — лаунчер подхватывает готовую версию к себе.</li></ol></div>
   </div>
 
   <div class="honest reveal">
-    <div><h3>🪞 Скины — тоже честно</h3><p>Лаунчер работает без лицензии Mojang. Значит, другие игроки на сервере всегда видят вас со стандартным скином — это ограничение протокола, а не наш баг. Функция «Скины» подменяет скин локально: видно в инвентаре, в отражении воды и на скриншотах в одиночной игре. Реально работает — просто без магии.</p></div>
+    <div><h3>Скины — тоже честно</h3><p>Лаунчер работает без лицензии Mojang. Значит, другие игроки на сервере всегда видят вас со стандартным скином — это ограничение протокола, а не наш баг. Функция «Скины» подменяет скин локально: видно в инвентаре, в отражении воды и на скриншотах в одиночной игре. Реально работает — просто без магии.</p></div>
     <div class="honest-tags"><span>64×64 / 64×32 PNG</span><span>Библиотека скинов</span><span>Применение в 1 клик</span></div>
   </div>
 </section>
@@ -325,7 +327,7 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
 <!-- ============ ENGINEERING ============ -->
 <section class="section container" id="engineering">
   <p class="kicker">Надёжность</p>
-  <h2>Проблемы, которые уже <span class="grad">решены за вас.</span></h2>
+  <h2>Исправленные дефекты.</h2>
   <div class="grid-2">
     <div class="fix reveal"><span class="fix-tag">fixed</span><h3>Зависание «Не отвечает» при старте</h3><p>Все сетевые запросы идут с тайм-аутами. Нет сети — получите понятную ошибку за секунды, а не мёртвое окно.</p></div>
     <div class="fix reveal"><span class="fix-tag">fixed</span><h3>Битые моды при обрыве скачивания</h3><p>Файл засчитывается только если скачался целиком — совпал размер. Недокачанные хвосты чистятся сами.</p></div>
@@ -346,12 +348,17 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
     <div class="dl-left">
       <p class="kicker">Скачать</p>
       <h2>Kazino Launcher <span class="grad">v5.1.34</span></h2>
-      <p class="sub" style="margin:8px 0 20px">Один Setup-файл на 72 МБ. Без галочек, без «пробных периодов». Поставил — играешь.</p>
+      <p class="sub" style="margin:8px 0 20px">Setup 72.1 МБ: установщик Windows x64, Java ставится автоматически. SHA-256 ниже — сверяйте после скачивания.</p>
       <div class="dl-buttons">
-        <a class="btn btn-primary btn-lg" href="https://github.com/magomed421/KazinoLauncher/releases/download/v5.1.34/KazinoLauncher-Setup-5.1.34.exe" download>⬇ Скачать Setup · 72 МБ</a>
+        <a class="btn btn-primary btn-lg" href="https://github.com/magomed421/KazinoLauncher/releases/download/v5.1.34/KazinoLauncher-Setup-5.1.34.exe" download>Скачать Setup · 72 МБ</a>
       </div>
       <p class="gate-warn" style="margin-top:14px">⚠ Обязательно посмотри видеоинструкцию перед установкой — без правильной настройки лаунчер будет лагать или не запустится. <a href="instruction.html" style="color:var(--green)">Смотреть инструкцию →</a></p>
-      <p class="micro">Файл лежит прямо на сайте — кнопка выше скачает <b>KazinoLauncher-Setup-5.1.34.exe</b> (72 МБ). Запасная копия — в канале «новости» Discord-сервера: <b>discord.gg/Av6BTQ66Vu</b>.</p>
+      <p class="micro">Файл: <b>KazinoLauncher-Setup-5.1.34.exe</b> (72.1 МБ). Зеркало — канал «новости» в Discord: <b>discord.gg/Av6BTQ66Vu</b>.</p>
+      <div class="install">
+        <div class="install-head"><span>Проверка SHA-256 после скачивания</span></div>
+        <pre>certutil -hashfile KazinoLauncher-Setup-5.1.34.exe SHA256
+35ce16b16f0be07ac7c38df820206b81cad25dac9c17900fa861676076813e4d</pre>
+      </div>
       <div class="install">
         <div class="install-head"><span>После скачивания</span></div>
         <pre>1. Нажмите «Скачать Setup» выше — файл сохранится на компьютер
@@ -371,7 +378,7 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
 <!-- ============ FAQ ============ -->
 <section class="section container narrow" id="faq">
   <p class="kicker">FAQ</p>
-  <h2>Вопросы, которые <span class="grad">задают все.</span></h2>
+  <h2>Частые вопросы.</h2>
   <div class="faq" id="faqList">
     <details class="faq-item" open><summary>Нужна ли лицензия Minecraft?</summary><p>Нет. Вводите никнейм и играете. Единственное следствие — другие игроки на чужих серверах видят вас со стандартным скином.</p></details>
     <details class="faq-item"><summary>Это безопасно? Нет ли вирусов?</summary><p>Лаунчер качает игру только с официальных источников. Никакой скрытой активности и сбора данных. Свежий файл всегда берите только здесь или из канала «новости» в нашем Discord — не качайте с чужих сайтов.</p></details>
@@ -386,9 +393,9 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
 <!-- CTA -->
 <section class="container">
   <div class="cta reveal">
-    <h2>Готов играть через 5 минут?</h2>
-    <p>Сначала глянь короткую инструкцию — потом качай в разделе «Скачать» и играй. С первой установкой помогут в Discord.</p>
-    <div class="cta-row"><a class="btn btn-primary btn-lg" href="instruction.html">▶ Видеоинструкция</a><a class="btn btn-donate btn-lg" href="https://www.donationalerts.com/r/magomed653" target="_blank" rel="noopener">❤ Поддержать</a><a class="btn btn-ghost btn-lg" href="https://discord.gg/Av6BTQ66Vu" target="_blank" rel="noopener">discord.gg/Av6BTQ66Vu</a></div>
+    <h2>Установка.</h2>
+    <p>Порядок: инструкция → раздел «Скачать» → Setup → ник → «Играть». Вопросы по установке — в Discord.</p>
+    <div class="cta-row"><a class="btn btn-primary btn-lg" href="instruction.html">Видеоинструкция</a><a class="btn btn-donate btn-lg" href="https://www.donationalerts.com/r/magomed653" target="_blank" rel="noopener">Поддержать</a><a class="btn btn-ghost btn-lg" href="https://discord.gg/Av6BTQ66Vu" target="_blank" rel="noopener">discord.gg/Av6BTQ66Vu</a></div>
   </div>
 </section>
 
@@ -402,7 +409,7 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
     <p class="gate-warn">⚠ Это обязательно: без настройки из инструкции лаунчер может лагать или вообще не запуститься. Не пропускай — там 2 минуты.</p>
     <video id="gateVideo" controls playsinline preload="metadata" src="instruction.mp4"></video>
     <div class="gate-row">
-      <a class="btn btn-primary gate-dl disabled" id="gateDl">⬇ Скачать Setup · 72 МБ</a>
+      <a class="btn btn-primary gate-dl disabled" id="gateDl">Скачать Setup · 72 МБ</a>
       <span class="gate-note" id="gateNote">Смотри видео — кнопка откроется в конце.</span>
     </div>
   </div>
@@ -410,9 +417,9 @@ h2{font-family:var(--disp);font-size:clamp(28px,3.6vw,44px);line-height:1.12;let
 
 <footer class="footer">
   <div class="container footer-inner">
-    <div class="brand"><span class="brand-mark sm">K</span><span class="brand-text">Kazino <em>Launcher</em><small>v5.1.34 · Setup 72 МБ · Windows 10/11</small></span></div>
+    <div class="brand"><span class="brand-mark sm">K</span><span class="brand-text">Kazino <em>Launcher</em><small>v5.1.34 · setup 72.1 МБ · win-x64 · sha256:35ce16b1</small></span></div>
     <p class="micro">Не аффилирован с Mojang AB / Microsoft. Minecraft — товарный знак Mojang. OptiFine — проект sp614x. Моды и ресурспаки принадлежат их авторам.</p>
-    <div class="foot-links"><a href="#features">Возможности</a><a href="#download">Скачать</a><a href="https://www.donationalerts.com/r/magomed653" target="_blank" rel="noopener">❤ Поддержать</a><a href="https://discord.gg/Av6BTQ66Vu" target="_blank" rel="noopener">Discord</a><span id="year"></span></div>
+    <div class="foot-links"><a href="#features">Возможности</a><a href="#download">Скачать</a><a href="https://www.donationalerts.com/r/magomed653" target="_blank" rel="noopener">Поддержать</a><a href="https://discord.gg/Av6BTQ66Vu" target="_blank" rel="noopener">Discord</a><span id="year"></span></div>
   </div>
 </footer>
 
